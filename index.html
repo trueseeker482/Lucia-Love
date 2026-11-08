@@ -1,0 +1,298 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Forever Lucia ❤️</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Georgia,'Times New Roman',serif;
+color:#fff0f5;
+text-align:center;
+background:radial-gradient(circle at top,#5b153d,#160519 70%);
+overflow-x:hidden;
+}
+header{padding:65px 18px 30px}
+h1{font-size:clamp(30px,8vw,58px);color:#ffb6d5;text-shadow:0 0 25px #ff278b}
+h2{color:#ffb6d5}
+p{line-height:1.9;font-size:17px}
+section{
+max-width:760px;
+margin:25px auto;
+padding:30px 22px;
+border:1px solid #ff80b544;
+border-radius:25px;
+background:#ffffff09;
+box-shadow:0 0 30px #ff006622;
+}
+button{
+border:1px solid #ff8cbd;
+border-radius:30px;
+padding:13px 20px;
+margin:7px;
+background:linear-gradient(135deg,#ff287f,#9b176b);
+color:white;
+font-size:15px;
+cursor:pointer;
+box-shadow:0 0 15px #ff278844;
+}
+button:hover{transform:scale(1.04)}
+.heart{
+font-size:75px;
+animation:pulse 1.5s infinite;
+cursor:pointer;
+display:inline-block;
+}
+@keyframes pulse{50%{transform:scale(1.18)}}
+.hidden{display:none}
+.loveletter{
+font-size:18px;
+line-height:2;
+text-align:left;
+white-space:pre-line;
+}
+#answer,#secret{
+margin-top:20px;
+color:#ffd3e7;
+font-size:18px;
+line-height:1.8;
+}
+footer{padding:40px 15px;color:#e7a9c7}
+.petal{
+position:fixed;
+top:-30px;
+pointer-events:none;
+animation:fall linear forwards;
+z-index:5;
+}
+@keyframes fall{
+to{transform:translateY(110vh) rotate(720deg);opacity:0}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<p>✨ A LITTLE UNIVERSE MADE JUST FOR YOU ✨</p>
+<h1>Forever Lucia ❤️</h1>
+<p>The woman who holds a very special place in my heart</p>
+<div class="heart" onclick="burst()">❤️</div>
+<p>Tap the heart, my love...</p>
+<button onclick="startLove()">Enter Our Little Love Story 💌</button>
+<button onclick="music()">🎶 Play Our Romantic Music</button>
+</header>
+
+<audio id="song" loop>
+<source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<section id="beginning" class="hidden">
+<h2>🌹 Where Our Story Begins</h2>
+<p>
+My beautiful Lucia, sometimes I look back and smile at the thought
+of how our paths crossed. Somewhere between that beginning and
+everything that followed, you became someone incredibly special
+to me.
+</p>
+<p>
+What started as a meeting became a beautiful part of my life.
+Every conversation, every moment, every memory has helped make
+our story something I treasure deeply.
+</p>
+<p>
+And if life gave me the chance to begin again, I would still
+want the beautiful opportunity of knowing you.
+</p>
+</section>
+
+<section id="changed" class="hidden">
+<h2>💖 You Have Changed My Life</h2>
+<p>
+Lucia, loving you has brought something beautiful into my world.
+You have given my heart reasons to smile, moments to remember,
+and someone wonderful to think about even when we are apart.
+</p>
+<p>
+You have made ordinary moments feel special. You have reminded
+me that happiness can live in the smallest things: a conversation,
+a smile, a little attention, or simply knowing that you are there.
+</p>
+<p>
+My life is more beautiful because you are part of it.
+And I never want to take that gift for granted.
+</p>
+</section>
+
+<section id="proud" class="hidden">
+<h2>🥹 I Am So Proud of You</h2>
+<p>
+My love, I am proud of the woman you are.
+Proud of your strength, your heart, your dreams, and the beautiful
+person you continue becoming.
+</p>
+<p>
+I admire you more than words can explain.
+I want to see you succeed, grow, shine, and achieve everything
+your heart has been hoping for.
+</p>
+<p>
+When you win, I want to celebrate with you.
+When life becomes difficult, I want to remind you how capable
+and valuable you are.
+Your dreams matter to me, Lucia.
+And your happiness matters deeply to my heart.
+</p>
+</section>
+
+<section id="letter" class="hidden">
+<h2>💌 A Letter From My Heart</h2>
+<div class="loveletter">
+My dearest Lucia,
+
+My love, my favorite person, my beautiful blessing...
+
+I wish you could see yourself through my eyes for just a moment.
+Maybe then you would understand why I am so grateful to have you
+in my life.
+
+I have so much love for you that sometimes ordinary words feel
+too small to carry everything my heart wants to say.
+
+You are not simply someone I love.
+You are someone I admire, someone I cherish, someone whose
+presence has become precious to me.
+
+Thank you for being part of my life.
+Thank you for the memories we have made.
+Thank you for the laughter, the conversations, and every little
+moment that has made our connection beautiful.
+
+I am proud of you, Lucia.
+I am proud of your journey.
+I am proud of the person you are.
+And I will always wish beautiful things for you.
+
+If I could give you one gift, it would be the ability to feel
+how deeply appreciated and loved you are.
+
+I want to keep creating memories with you.
+I want more laughter, more conversations, more beautiful days.
+I want to keep discovering new reasons to love you.
+
+You have a special place in my heart.
+A place that belongs to you alone.
+
+I love you, Lucia.
+Today, tomorrow, and in every beautiful chapter ahead.
+
+Forever yours,
+Someone whose heart smiles because of you ❤️
+</div>
+</section>
+
+<section id="secret" class="hidden">
+<h2>🔐 A Little Secret...</h2>
+<p>Lucia, there is one more thing I want you to know.</p>
+<button onclick="reveal()">Unlock Your Secret Message 💝</button>
+<div id="secretText" class="hidden">
+<p>
+If I could choose one person to remind every day how beautiful
+love can be, I would choose you again and again.
+
+You are my favorite hello, my sweetest thought, and one of
+the most precious parts of my life.
+
+I love you more than this little webpage can ever express. ❤️
+</p>
+<h2>💋 A thousand kisses for you!</h2>
+</div>
+</section>
+
+<section id="choices" class="hidden">
+<h2>💕 What Is Your Heart Saying?</h2>
+<p>Choose a little message, my love...</p>
+<button onclick="reply(1)">I Love You Too ❤️</button>
+<button onclick="reply(2)">Send Me A Kiss 😘</button>
+<button onclick="reply(3)">Forever Yours 💍</button>
+<button onclick="reply(4)">My Favorite Person 🥹</button>
+<button onclick="reply(5)">I Am Smiling Right Now 😊</button>
+<div id="answer"></div>
+</section>
+
+<section id="final" class="hidden">
+<h2>🌌 One Last Thing, My Love...</h2>
+<p>
+Of all the beautiful things life has given me,
+having you in my heart is something I will always treasure.
+</p>
+<div class="heart">❤️</div>
+<h1>My Lucia. My Love. My Beautiful Story.</h1>
+<p>May our love keep growing, one beautiful day at a time.</p>
+<h2>I LOVE YOU SO MUCH! ❤️🌹</h2>
+</section>
+
+<footer>
+Made with endless love, just for Lucia ❤️<br>
+A little webpage. A very big love.
+</footer>
+
+<script>
+function startLove(){
+["beginning","changed","proud","letter","secret","choices","final"]
+.forEach(id=>document.getElementById(id).classList.remove("hidden"));
+document.getElementById("beginning").scrollIntoView({behavior:"smooth"});
+}
+
+function music(){
+const s=document.getElementById("song");
+if(s.paused){
+s.play().then(()=>{}).catch(()=>alert("Please check your internet connection."));
+}else{s.pause();}
+}
+
+function reveal(){
+document.getElementById("secretText").classList.remove("hidden");
+}
+
+function reply(n){
+const messages={
+1:"And I will keep loving you with all the tenderness in my heart. ❤️",
+2:"Sending you the biggest, sweetest virtual kiss! 😘💋",
+3:"Then let us keep writing beautiful chapters together. 💍",
+4:"And you will always be one of my most precious people. 🥹❤️",
+5:"That smile is exactly what I hoped this little surprise would bring! 😊💖"
+};
+document.getElementById("answer").innerHTML=messages[n];
+}
+
+function burst(){
+for(let i=0;i<18;i++){
+let h=document.createElement("div");
+h.className="petal";
+h.innerHTML=["❤️","💗","🌹","💕","✨"][Math.floor(Math.random()*5)];
+h.style.left=Math.random()*100+"vw";
+h.style.animationDuration=(3+Math.random()*4)+"s";
+h.style.fontSize=(18+Math.random()*25)+"px";
+document.body.appendChild(h);
+setTimeout(()=>h.remove(),7000);
+}
+}
+setInterval(()=>{
+let p=document.createElement("div");
+p.className="petal";
+p.innerHTML=["💕","🌸","✨"][Math.floor(Math.random()*3)];
+p.style.left=Math.random()*100+"vw";
+p.style.animationDuration=(5+Math.random()*5)+"s";
+document.body.appendChild(p);
+setTimeout(()=>p.remove(),10000);
+},900);
+</script>
+
+</body>
+</html>
+
