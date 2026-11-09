@@ -4,74 +4,63 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Forever Lucia ❤️</title>
+<title>Lucia's Love Universe ❤️</title>
 
 <style>
 *{box-sizing:border-box}
 body{
-margin:0;
+margin:0;color:#fff0f6;text-align:center;
 font-family:Georgia,'Times New Roman',serif;
-color:#fff0f5;
-text-align:center;
-background:radial-gradient(circle at top,#5b153d,#160519 70%);
-overflow-x:hidden;
+background:radial-gradient(circle at top,#65123f,#17051c 75%);
+min-height:100vh;overflow-x:hidden
 }
-header{padding:65px 18px 30px}
-h1{font-size:clamp(30px,8vw,58px);color:#ffb6d5;text-shadow:0 0 25px #ff278b}
-h2{color:#ffb6d5}
+header{padding:55px 15px 25px}
+h1{font-size:clamp(30px,8vw,55px);color:#ffb7d7;text-shadow:0 0 25px #ff2990}
+h2{color:#ffb7d7}
 p{line-height:1.9;font-size:17px}
-section{
-max-width:760px;
-margin:25px auto;
-padding:30px 22px;
-border:1px solid #ff80b544;
-border-radius:25px;
-background:#ffffff09;
-box-shadow:0 0 30px #ff006622;
-}
 button{
-border:1px solid #ff8cbd;
-border-radius:30px;
-padding:13px 20px;
-margin:7px;
-background:linear-gradient(135deg,#ff287f,#9b176b);
-color:white;
-font-size:15px;
-cursor:pointer;
-box-shadow:0 0 15px #ff278844;
+border:1px solid #ff91c3;border-radius:25px;
+padding:13px 18px;margin:7px;
+background:linear-gradient(135deg,#ff287f,#92145f);
+color:white;font-size:15px;cursor:pointer;
+box-shadow:0 0 15px #ff278833;
+transition:.25s
 }
 button:hover{transform:scale(1.04)}
-.heart{
-font-size:75px;
-animation:pulse 1.5s infinite;
-cursor:pointer;
-display:inline-block;
+.heart{font-size:70px;animation:pulse 1.5s infinite}
+@keyframes pulse{50%{transform:scale(1.15)}}
+.container{max-width:850px;margin:auto;padding:15px}
+.panel{
+border:1px solid #ff80b544;border-radius:25px;
+padding:25px 18px;margin:20px auto;
+background:#ffffff09;box-shadow:0 0 30px #ff006622
 }
-@keyframes pulse{50%{transform:scale(1.18)}}
-.hidden{display:none}
-.loveletter{
-font-size:18px;
-line-height:2;
-text-align:left;
-white-space:pre-line;
+#menu{display:none}
+#book{display:none}
+.folder-grid{
+display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+gap:12px;margin-top:25px
 }
-#answer,#secret{
-margin-top:20px;
-color:#ffd3e7;
-font-size:18px;
-line-height:1.8;
+.folder{
+background:linear-gradient(145deg,#53163d,#29102f);
+border:1px solid #ff8cbd55;border-radius:18px;
+padding:20px 10px;cursor:pointer;
+transition:.3s
 }
-footer{padding:40px 15px;color:#e7a9c7}
-.petal{
-position:fixed;
-top:-30px;
-pointer-events:none;
-animation:fall linear forwards;
-z-index:5;
-}
-@keyframes fall{
-to{transform:translateY(110vh) rotate(720deg);opacity:0}
-}
+.folder:hover{transform:translateY(-5px);box-shadow:0 0 20px #ff278844}
+.folder-icon{font-size:35px;display:block;margin-bottom:10px}
+.folder-title{color:#ffd0e6;font-size:15px;line-height:1.5}
+.chapter{display:none;text-align:left;animation:fade .5s}
+.chapter h2{text-align:center}
+.chapter p{white-space:pre-line}
+.chapter-number{text-align:center;color:#ffacd2;font-size:13px;letter-spacing:2px}
+.nav{text-align:center;margin-top:30px}
+#progress{color:#ffb6d5;margin:15px}
+#secretText{display:none;text-align:center;color:#ffd4e7}
+footer{padding:35px 15px;color:#e6a5c6}
+.petal{position:fixed;top:-30px;pointer-events:none;animation:fall linear forwards;z-index:5}
+@keyframes fall{to{transform:translateY(110vh) rotate(720deg);opacity:0}}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 </style>
 </head>
 
@@ -80,109 +69,206 @@ to{transform:translateY(110vh) rotate(720deg);opacity:0}
 <header>
 <p>✨ A LITTLE UNIVERSE MADE JUST FOR YOU ✨</p>
 <h1>Forever Lucia ❤️</h1>
-<p>The woman who holds a very special place in my heart</p>
-<div class="heart" onclick="burst()">❤️</div>
-<p>Tap the heart, my love...</p>
-<button onclick="startLove()">Enter Our Little Love Story 💌</button>
-<button onclick="music()">🎶 Play Our Romantic Music</button>
+<p>My love, my pride, my beautiful story.</p>
+<div class="heart">❤️</div>
+<p>Every chapter here belongs to you.</p>
+<button onclick="startBook()">Open Your Love Universe 💌</button>
+<button onclick="toggleMusic()" id="musicBtn">🎶 Play Romantic Music</button>
 </header>
 
 <audio id="song" loop>
 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
 
-<section id="beginning" class="hidden">
-<h2>🌹 Where Our Story Begins</h2>
-<p>
-My beautiful Lucia, sometimes I look back and smile at the thought
-of how our paths crossed. Somewhere between that beginning and
-everything that followed, you became someone incredibly special
-to me.
-</p>
-<p>
-What started as a meeting became a beautiful part of my life.
-Every conversation, every moment, every memory has helped make
-our story something I treasure deeply.
-</p>
-<p>
-And if life gave me the chance to begin again, I would still
-want the beautiful opportunity of knowing you.
-</p>
+<div class="container">
+
+<section class="panel" id="menu">
+<h2>📚 Our Little Love Book</h2>
+<p>Choose any chapter, my love.<br>Each folder holds something from my heart.</p>
+
+<div class="folder-grid">
+<div class="folder" onclick="openChapter(0)">
+<span class="folder-icon">📂💗</span>
+<span class="folder-title">01 — Where Our Story Began</span>
+</div>
+
+<div class="folder" onclick="openChapter(1)">
+<span class="folder-icon">📂🌹</span>
+<span class="folder-title">02 — You Changed My Life</span>
+</div>
+
+<div class="folder" onclick="openChapter(2)">
+<span class="folder-icon">📂🥹</span>
+<span class="folder-title">03 — Why I Am Proud of You</span>
+</div>
+
+<div class="folder" onclick="openChapter(3)">
+<span class="folder-icon">📂💕</span>
+<span class="folder-title">04 — Things I Adore About You</span>
+</div>
+
+<div class="folder" onclick="openChapter(4)">
+<span class="folder-icon">📂💌</span>
+<span class="folder-title">05 — My Deepest Love Letter</span>
+</div>
+
+<div class="folder" onclick="openChapter(5)">
+<span class="folder-icon">📂🌌</span>
+<span class="folder-title">06 — Our Dreams & Forever</span>
+</div>
+
+<div class="folder" onclick="openChapter(6)">
+<span class="folder-icon">📂🔐</span>
+<span class="folder-title">07 — Secret Messages</span>
+</div>
+</div>
 </section>
 
-<section id="changed" class="hidden">
-<h2>💖 You Have Changed My Life</h2>
+<section class="panel" id="book">
+
+<div class="chapter">
+<div class="chapter-number">CHAPTER 01 • OUR BEGINNING</div>
+<h2>🌹 Where Our Story Began</h2>
 <p>
-Lucia, loving you has brought something beautiful into my world.
+My beautiful Lucia,
+
+Sometimes I think about the beautiful mystery of how two
+people can meet and eventually become so important to each
+other.
+
+Somewhere in our beginning, a beautiful connection started.
+And with time, you became someone my heart treasures
+more than I can explain.
+
+I may not have known everything that our story would become
+when we first met, but I am so grateful that life gave me
+the opportunity to know you.
+
+Our beginning is a memory I will always cherish.
+And the thought of the beautiful chapters ahead makes me smile.
+
+If I could return to that beginning, knowing everything I
+know now about how special you would become to me,
+I would still choose the chance to meet you. ❤️
+</p>
+</div>
+
+<div class="chapter">
+<div class="chapter-number">CHAPTER 02 • MY BEAUTIFUL BLESSING</div>
+<h2>💖 You Changed My Life</h2>
+<p>
+Lucia, you have brought something beautiful into my world.
+
 You have given my heart reasons to smile, moments to remember,
 and someone wonderful to think about even when we are apart.
-</p>
-<p>
-You have made ordinary moments feel special. You have reminded
-me that happiness can live in the smallest things: a conversation,
-a smile, a little attention, or simply knowing that you are there.
-</p>
-<p>
+
+You have made ordinary moments feel special.
+A conversation with you can brighten my day.
+A little attention from you can make me smile unexpectedly.
+And simply knowing that you are part of my life means so much.
+
+You have reminded me that love can make life feel warmer,
+that happiness can be found in little things,
+and that one special person can make a difference
+in ways words cannot fully explain.
+
 My life is more beautiful because you are part of it.
-And I never want to take that gift for granted.
-</p>
-</section>
 
-<section id="proud" class="hidden">
-<h2>🥹 I Am So Proud of You</h2>
-<p>
-My love, I am proud of the woman you are.
-Proud of your strength, your heart, your dreams, and the beautiful
-person you continue becoming.
+Thank you for being my Lucia. ❤️
 </p>
+</div>
+
+<div class="chapter">
+<div class="chapter-number">CHAPTER 03 • MY ADMIRATION</div>
+<h2>🥹 Why I Am So Proud of You</h2>
 <p>
-I admire you more than words can explain.
-I want to see you succeed, grow, shine, and achieve everything
+My love, I want you to know how proud I am of you.
+
+Proud of the woman you are.
+Proud of your strength.
+Proud of your dreams.
+Proud of the beautiful person you continue becoming.
+
+I admire you more than ordinary words can express.
+I want to see you grow, shine, succeed, and achieve everything
 your heart has been hoping for.
-</p>
-<p>
-When you win, I want to celebrate with you.
-When life becomes difficult, I want to remind you how capable
-and valuable you are.
-Your dreams matter to me, Lucia.
-And your happiness matters deeply to my heart.
-</p>
-</section>
 
-<section id="letter" class="hidden">
-<h2>💌 A Letter From My Heart</h2>
-<div class="loveletter">
+When you win, I want to celebrate with you.
+When life becomes difficult, I want to remind you
+how capable, valuable, and wonderful you are.
+
+Your dreams matter to me.
+Your happiness matters to me.
+Your peace matters to me.
+
+Never underestimate the beautiful person you are, Lucia.
+
+I believe in you, and I am so proud to love you. ❤️
+</p>
+</div>
+
+<div class="chapter">
+<div class="chapter-number">CHAPTER 04 • THE LITTLE THINGS</div>
+<h2>💕 Things I Adore About You</h2>
+<p>
+There are so many things I adore about you, Lucia.
+
+I adore the happiness you bring into my world.
+I adore the way your presence makes moments feel special.
+I adore having someone as precious as you in my life.
+
+I adore the thought of making you smile.
+I adore the possibility of creating more beautiful memories.
+I adore having someone whose happiness I genuinely care about.
+
+And beyond everything else,
+I adore YOU.
+
+Not because you have to be perfect.
+Not because every day has to be extraordinary.
+But because you are the beautiful person you are.
+
+You are precious to my heart, my love. 🌹
+</p>
+</div>
+
+<div class="chapter">
+<div class="chapter-number">CHAPTER 05 • STRAIGHT FROM MY HEART</div>
+<h2>💌 My Deepest Love Letter</h2>
+<p>
 My dearest Lucia,
 
 My love, my favorite person, my beautiful blessing...
 
 I wish you could see yourself through my eyes for just a moment.
-Maybe then you would understand why I am so grateful to have you
-in my life.
+Maybe then you would understand why I am so grateful
+to have you in my life.
 
-I have so much love for you that sometimes ordinary words feel
-too small to carry everything my heart wants to say.
+I have so much love for you that sometimes ordinary words
+feel too small to carry everything my heart wants to say.
 
 You are not simply someone I love.
-You are someone I admire, someone I cherish, someone whose
-presence has become precious to me.
+You are someone I admire, someone I cherish,
+someone whose presence has become precious to me.
 
 Thank you for being part of my life.
 Thank you for the memories we have made.
-Thank you for the laughter, the conversations, and every little
-moment that has made our connection beautiful.
+Thank you for the laughter, the conversations,
+and every little moment that has made our connection beautiful.
 
 I am proud of you, Lucia.
 I am proud of your journey.
 I am proud of the person you are.
 And I will always wish beautiful things for you.
 
-If I could give you one gift, it would be the ability to feel
-how deeply appreciated and loved you are.
+If I could give you one gift,
+it would be the ability to feel how deeply appreciated
+and loved you are.
 
-I want to keep creating memories with you.
-I want more laughter, more conversations, more beautiful days.
-I want to keep discovering new reasons to love you.
+I want more laughter with you.
+More conversations.
+More beautiful days.
+More memories we can look back on and smile about.
 
 You have a special place in my heart.
 A place that belongs to you alone.
@@ -191,97 +277,192 @@ I love you, Lucia.
 Today, tomorrow, and in every beautiful chapter ahead.
 
 Forever yours,
-Someone whose heart smiles because of you ❤️
-</div>
-</section>
-
-<section id="secret" class="hidden">
-<h2>🔐 A Little Secret...</h2>
-<p>Lucia, there is one more thing I want you to know.</p>
-<button onclick="reveal()">Unlock Your Secret Message 💝</button>
-<div id="secretText" class="hidden">
-<p>
-If I could choose one person to remind every day how beautiful
-love can be, I would choose you again and again.
-
-You are my favorite hello, my sweetest thought, and one of
-the most precious parts of my life.
-
-I love you more than this little webpage can ever express. ❤️
+Someone whose heart smiles because of you. ❤️
 </p>
-<h2>💋 A thousand kisses for you!</h2>
 </div>
-</section>
 
-<section id="choices" class="hidden">
-<h2>💕 What Is Your Heart Saying?</h2>
-<p>Choose a little message, my love...</p>
-<button onclick="reply(1)">I Love You Too ❤️</button>
-<button onclick="reply(2)">Send Me A Kiss 😘</button>
-<button onclick="reply(3)">Forever Yours 💍</button>
-<button onclick="reply(4)">My Favorite Person 🥹</button>
-<button onclick="reply(5)">I Am Smiling Right Now 😊</button>
-<div id="answer"></div>
-</section>
-
-<section id="final" class="hidden">
-<h2>🌌 One Last Thing, My Love...</h2>
+<div class="chapter">
+<div class="chapter-number">CHAPTER 06 • OUR FUTURE</div>
+<h2>🌌 Our Dreams & Forever</h2>
 <p>
-Of all the beautiful things life has given me,
-having you in my heart is something I will always treasure.
+My beautiful Lucia,
+
+When I think about the future, I hope it holds
+many beautiful things for us.
+
+More moments of happiness.
+More understanding.
+More laughter.
+More patience.
+More reasons to appreciate one another.
+
+I hope we keep encouraging each other's dreams.
+I hope we celebrate every little victory.
+I hope we become even better people along the way.
+
+I cannot promise that every day will be perfect.
+But I can promise that my love for you is something
+I want to keep treating with care, honesty, and respect.
+
+Whatever beautiful chapters life gives us,
+I hope we fill them with kindness, trust, and love.
+
+And if there is one thing I want you to remember,
+it is this:
+
+You are deeply treasured.
+You are admired.
+You are loved.
+
+And I am so grateful for you. ❤️
 </p>
+</div>
+
+<div class="chapter">
+<div class="chapter-number">CHAPTER 07 • JUST BETWEEN US</div>
+<h2>🔐 A Secret Message for Lucia</h2>
+<p style="text-align:center">
+My love, there is one last little surprise...
+</p>
+<div style="text-align:center">
+<button onclick="revealSecret()">Unlock My Secret Message 💝</button>
+</div>
+<div id="secretText">
+<p>
+If I could choose one person to remind every day
+how beautiful love can be, I would choose you again and again.
+
+You are my favorite hello,
+my sweetest thought,
+and one of the most precious parts of my life.
+
+I love you more than this little webpage can ever express.
+
+My Lucia.
+My love.
+My beautiful story.
+
+❤️🌹💋
+</p>
+</div>
+</div>
+
+<div class="nav">
+<div id="progress"></div>
+<button onclick="previousChapter()">⬅ Previous</button>
+<button onclick="backToFolders()">📚 Back to Chapters</button>
+<button onclick="nextChapter()">Next ➡</button>
+</div>
+
+</section>
+
+<section class="panel">
+<h2>💞 A Little Love Interaction</h2>
+<p>Choose what your heart wants to tell me, my love.</p>
+<button onclick="respond(1)">I Love You Too ❤️</button>
+<button onclick="respond(2)">Send Me A Kiss 😘</button>
+<button onclick="respond(3)">Forever Yours 💍</button>
+<button onclick="respond(4)">My Favorite Person 🥹</button>
+<button onclick="respond(5)">I Am Smiling 😊</button>
+<p id="response"></p>
+</section>
+
+<section class="panel">
+<h2>❤️ One Last Thing...</h2>
 <div class="heart">❤️</div>
-<h1>My Lucia. My Love. My Beautiful Story.</h1>
-<p>May our love keep growing, one beautiful day at a time.</p>
-<h2>I LOVE YOU SO MUCH! ❤️🌹</h2>
+<h2>My Lucia. My Love. My Beautiful Story.</h2>
+<p>
+May our love keep growing,
+one beautiful day at a time.
+</p>
+<h1>I LOVE YOU SO MUCH! 🌹</h1>
 </section>
+
+</div>
 
 <footer>
 Made with endless love, just for Lucia ❤️<br>
-A little webpage. A very big love.
+Seven little chapters. One very big love.
 </footer>
 
 <script>
-function startLove(){
-["beginning","changed","proud","letter","secret","choices","final"]
-.forEach(id=>document.getElementById(id).classList.remove("hidden"));
-document.getElementById("beginning").scrollIntoView({behavior:"smooth"});
+let current=0;
+const chapters=document.querySelectorAll(".chapter");
+
+function startBook(){
+document.getElementById("menu").style.display="block";
+document.getElementById("menu").scrollIntoView({behavior:"smooth"});
 }
 
-function music(){
-const s=document.getElementById("song");
+function openChapter(n){
+current=n;
+document.getElementById("menu").style.display="none";
+document.getElementById("book").style.display="block";
+showChapter();
+document.getElementById("book").scrollIntoView({behavior:"smooth"});
+}
+
+function showChapter(){
+chapters.forEach((c,i)=>c.style.display=i===current?"block":"none");
+document.getElementById("progress").innerText=
+"Chapter "+(current+1)+" of "+chapters.length+" ❤️";
+}
+
+function nextChapter(){
+if(current<chapters.length-1){current++;showChapter();}
+else{backToFolders();alert("You have reached the final chapter, my love! ❤️");}
+}
+
+function previousChapter(){
+if(current>0){current--;showChapter();}
+else{backToFolders();}
+}
+
+function backToFolders(){
+document.getElementById("book").style.display="none";
+document.getElementById("menu").style.display="block";
+document.getElementById("menu").scrollIntoView({behavior:"smooth"});
+}
+
+function revealSecret(){
+document.getElementById("secretText").style.display="block";
+}
+
+function toggleMusic(){
+let s=document.getElementById("song");
+let b=document.getElementById("musicBtn");
 if(s.paused){
-s.play().then(()=>{}).catch(()=>alert("Please check your internet connection."));
-}else{s.pause();}
+s.play().then(()=>b.innerText="⏸ Pause Romantic Music")
+.catch(()=>alert("Check your internet connection and try again."));
+}else{
+s.pause();
+b.innerText="🎶 Play Romantic Music";
+}
 }
 
-function reveal(){
-document.getElementById("secretText").classList.remove("hidden");
-}
-
-function reply(n){
+function respond(n){
 const messages={
 1:"And I will keep loving you with all the tenderness in my heart. ❤️",
 2:"Sending you the biggest, sweetest virtual kiss! 😘💋",
-3:"Then let us keep writing beautiful chapters together. 💍",
-4:"And you will always be one of my most precious people. 🥹❤️",
-5:"That smile is exactly what I hoped this little surprise would bring! 😊💖"
+3:"Let us keep writing beautiful chapters together. 💍",
+4:"You will always be one of my most precious people. 🥹❤️",
+5:"That smile is exactly what I hoped this surprise would bring! 😊💖"
 };
-document.getElementById("answer").innerHTML=messages[n];
+document.getElementById("response").innerText=messages[n];
 }
 
 function burst(){
-for(let i=0;i<18;i++){
+for(let i=0;i<15;i++){
 let h=document.createElement("div");
 h.className="petal";
 h.innerHTML=["❤️","💗","🌹","💕","✨"][Math.floor(Math.random()*5)];
 h.style.left=Math.random()*100+"vw";
 h.style.animationDuration=(3+Math.random()*4)+"s";
-h.style.fontSize=(18+Math.random()*25)+"px";
 document.body.appendChild(h);
 setTimeout(()=>h.remove(),7000);
 }
 }
+
 setInterval(()=>{
 let p=document.createElement("div");
 p.className="petal";
@@ -290,7 +471,7 @@ p.style.left=Math.random()*100+"vw";
 p.style.animationDuration=(5+Math.random()*5)+"s";
 document.body.appendChild(p);
 setTimeout(()=>p.remove(),10000);
-},900);
+},1000);
 </script>
 
 </body>
